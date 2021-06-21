@@ -197,25 +197,25 @@ h1,h3{line-height:1.4;}
 .webform-title h1{font-size:1.8rem;margin:0;}
 }
 
-.webformimage{width:100%;max-width:100vw;position:relative;z-index:1;padding:0 15px;margin:0 auto 2rem auto;background:0 0;display:block;background-image:url('./back3.jpg');    background-position: center;
+/*.webformimage{width:100%;max-width:100vw;position:relative;z-index:1;padding:0 15px;margin:0 auto 2rem auto;background:0 0;display:block;background-image:url('./back3.jpg');    background-position: center;
     background-repeat: no-repeat;
     background-size: cover;}
-
+*/
 @media only screen and (max-width:1444px){
 
-.webformimage{width:100%;max-width:100vw;position:relative;z-index:1;padding:0 15px;margin:0 auto 2rem auto;background:0 0;display:block;background-image:url('./back2.jpg');    background-position: center;
+/*.webformimage{width:100%;max-width:100vw;position:relative;z-index:1;padding:0 15px;margin:0 auto 2rem auto;background:0 0;display:block;background-image:url('./back2.jpg');    background-position: center;
     background-repeat: no-repeat;
     background-size: cover;}
-}
+}*/
 
 
 @media only screen and (max-width:1024px){
 
-.webformimage{width:100%;max-width:100vw;position:relative;z-index:1;padding:0 15px;margin:0 auto 2rem auto;background:0 0;display:block;background-image:url('./back2.jpg');    background-position: center;
+/*.webformimage{width:100%;max-width:100vw;position:relative;z-index:1;padding:0 15px;margin:0 auto 2rem auto;background:0 0;display:block;background-image:url('./back2.jpg');    background-position: center;
     background-repeat: no-repeat;
     background-size: cover;}
 }
-
+*/
 
 .alert{color:#000;}
 .alert{background-color:#d1ecfa;color:#5d5d60;font-weight:400;border-radius:5px;margin:.8rem 2px;font-size:1rem;line-height:1.4;text-align:center;padding:2px 5px;}
@@ -1504,17 +1504,17 @@ submissionData.questions = inputData;
 // submissionData.consented_suppliers_hash = response.consented_suppliers_hash;
 
 
-var settings = {
-    "url": "https://v1.nocodeapi.com/cedyf/google_sheets/PwozBIwuTPMDXdJG?tabId=<tabId>",
-    "method": "post",
-    "timeout": 0,
-    "headers": {
-        "Content-Type": "application/json"
-      },
-data = "[[\"NoCodeAPI\",\"hello@nocodeapi.com\"],[\"Mohd Danish\",\"mddanishyusuf@gmail.com\"]]"
-  };
-  
+// var settings = {
+//     "url": "https://v1.nocodeapi.com/cedyf/google_sheets/PwozBIwuTPMDXdJG?tabId=<tabId>",
+//     "method": "post",
+//     "timeout": 0,
+//     "headers": {
+//         "Content-Type": "application/json"
+//       },
 
+//   };
+  
+//var data = "[[\"NoCodeAPI\",\"hello@nocodeapi.com\"],[\"Mohd Danish\",\"mddanishyusuf@gmail.com\"]]"
 
   // $.ajax(settings).done(function (response) {
   //   console.log(response);
@@ -1523,10 +1523,10 @@ data = "[[\"NoCodeAPI\",\"hello@nocodeapi.com\"],[\"Mohd Danish\",\"mddanishyusu
 
 const res = await fetch('https://v1.nocodeapi.com/cedyf/google_sheets/PwozBIwuTPMDXdJG?tabId=Leads', {method: "POST", headers: {
             "Content-Type": "application/json",
-        }, body:data;
+        }, body:([[JSON.stringify(submissionData)]])});
 const json = await res.json();
 console.log(json);
-window.location.href = "https://news.expertmarket.co.uk/accounting-services-thanks?sid=2342343";
+//window.location.href = "https://news.expertmarket.co.uk/accounting-services-thanks?sid=2342343";
 
 
 // inputData = {
