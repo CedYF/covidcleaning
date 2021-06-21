@@ -1514,16 +1514,18 @@ var settings = {
 data = "[[\"NoCodeAPI\",\"hello@nocodeapi.com\"],[\"Mohd Danish\",\"mddanishyusuf@gmail.com\"]]"
   };
   
-  $.ajax(settings).done(function (response) {
-    console.log(response);
-  });
 
 
-// const res = await fetch('https://webforms.mvfglobal.com/submission/bob', {method: "POST", headers: {
-//             "Content-Type": "application/json",
-//         }, body: JSON.stringify(submissionData)});
-// const json = await res.json();
-// console.log(json);
+  // $.ajax(settings).done(function (response) {
+  //   console.log(response);
+  // });
+
+
+const res = await fetch('https://v1.nocodeapi.com/cedyf/google_sheets/PwozBIwuTPMDXdJG?tabId=Leads', {method: "POST", headers: {
+            "Content-Type": "application/json",
+        }, body:data;
+const json = await res.json();
+console.log(json);
 window.location.href = "https://news.expertmarket.co.uk/accounting-services-thanks?sid=2342343";
 
 
