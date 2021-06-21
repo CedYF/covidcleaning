@@ -1489,9 +1489,18 @@ else{
 
  console.log(cid)
 
+function getFormattedDate(){
+    var d = new Date();
+
+d = d.getFullYear() + "-" + ('0' + (d.getMonth() + 1)).slice(-2) + "-" + ('0' + d.getDate()).slice(-2) + " " + ('0' + d.getHours()).slice(-2) + ":" + ('0' + d.getMinutes()).slice(-2) + ":" + ('0' + d.getSeconds()).slice(-2);
+
+    return d;
+}
+
+
   let submissionData = {};
   inputData.url = 'covid cleaning';
-  inputData.submittedDate = new Date().toLocaleDateString()
+  inputData.submittedDate = getFormattedDate().toString()
 submissionData.campaign_id = cid;
 submissionData.subcategory_id = subcategory_id;
 submissionData.language_code = "en";
