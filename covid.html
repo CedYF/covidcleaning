@@ -6,11 +6,11 @@
 
 
 <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+<!-- <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-W4KSCNJ');</script>
+})(window,document,'script','dataLayer','GTM-W4KSCNJ');</script> -->
 <!-- End Google Tag Manager -->
 
 
@@ -976,32 +976,32 @@ if(Cookies.get('cookie23') != 'true'){
            }
        });
    }
-   getconsent();
+   //getconsent();
 });
 
 var subcategory_id = "b8090ede-5d93-fad7-1e83-4f38e8ede96d";
 
 
-async function getconsent(){
+// async function getconsent(){
 
 
-const eagle = await fetch("https://eagle.mvfglobal.com/api/v2/legal-statement?subcategoryId="+subcategory_id+"&localeCode=en_GB&supplierId=", {headers: {'Authorization': 'Bearer '}});
-const response = await eagle.json();
+// const eagle = await fetch("https://eagle.mvfglobal.com/api/v2/legal-statement?subcategoryId="+subcategory_id+"&localeCode=en_GB&supplierId=", {headers: {'Authorization': 'Bearer '}});
+// const response = await eagle.json();
 
-var newstatement = response["statement"].split('<a')[0]+'<a href="#ex1" rel="modal:open" style="text-decoration:underline; color: inherit; cursor: pointer;">'+response['statement'].split('pointer;">')[1]
+// var newstatement = response["statement"].split('<a')[0]+'<a href="#ex1" rel="modal:open" style="text-decoration:underline; color: inherit; cursor: pointer;">'+response['statement'].split('pointer;">')[1]
 
-$('#tcpa').html(newstatement);
-
-
-
-$('#legaltext').html(response['suppliers_modal'].split('<div class="modal-body">')[1].split('<div class="modal-footer">')[0]);
+// $('#tcpa').html(newstatement);
 
 
 
-return response;
+// $('#legaltext').html(response['suppliers_modal'].split('<div class="modal-body">')[1].split('<div class="modal-footer">')[0]);
 
 
-}
+
+// return response;
+
+
+// }
 
 
   $(document).on('keypress',function(e) {
@@ -1123,6 +1123,8 @@ $("#selectme").on("change",function(){
   
   var answer = $( "#selectme option:selected" ).text()
   var questionId = $(this).parent().parent().attr( "data-placeholder");
+  var questionId = $(this).parent().parent().text();
+
   $(".error-message").remove()
   mySwipe.slideNext();
   questionsArray[questionId] = answer
@@ -1147,6 +1149,7 @@ event.preventDefault();
  var answer = $(this).find('span').text();
  
  var questionId = $(this).parent().parent().parent().attr( "data-placeholder");
+ var questionId = $(this).parent().parent().parent().text();
 
  if(checkboxAnswer.includes(answer)){
 
@@ -1194,6 +1197,7 @@ questionsArray[questionId] = checkboxAnswer.toString();
 
 
   var questionId = $(this).parent().parent().parent().attr( "data-placeholder");
+  var questionId = $(this).parent().parent().parent().text();
   
  questionsArray[questionId] = answer
 
@@ -1486,7 +1490,8 @@ else{
  console.log(cid)
 
   let submissionData = {};
-  inputData.url = 'https://news.expertmarket.co.uk/accounting-services?nwid=speed';
+  inputData.url = 'covid cleaning';
+  inputData.submittedDate = new Date().toLocaleDateString()
 submissionData.campaign_id = cid;
 submissionData.subcategory_id = subcategory_id;
 submissionData.language_code = "en";
@@ -1495,7 +1500,14 @@ submissionData.source_site = 'news.expertmarket.co.uk';
 submissionData.origin_id = 'bob-zapier';
 submissionData.questions = inputData;
 
+var finalData = [submissionData.campaign_id,submissionData.subcategory_id,inputData]
 
+
+var finalData = []
+ Object.keys(inputData).forEach(function eachKey(key) {
+    //trafficData.push({"traffic":data3[key],"dateTime":key})
+    finalData.push(inputData[key]);
+  });
 
 
 // const eagle = await fetch("https://eagle.mvfglobal.com/api/v2/legal-statement?subcategoryId=" + submissionData.subcategory_id +  "&localeCode=en_GB", {headers: {'Authorization': 'Bearer aer5dei2Thie2caib2yigu0ahwuNgu4w'}});
@@ -1520,10 +1532,13 @@ submissionData.questions = inputData;
   //   console.log(response);
   // });
 
+var data = JSON.stringify([finalData])
 
 const res = await fetch('https://v1.nocodeapi.com/cedyf/google_sheets/PwozBIwuTPMDXdJG?tabId=Leads', {method: "POST", headers: {
             "Content-Type": "application/json",
-        }, body:([[JSON.stringify(submissionData)]])});
+        }, body:data
+
+    });
 const json = await res.json();
 console.log(json);
 //window.location.href = "https://news.expertmarket.co.uk/accounting-services-thanks?sid=2342343";
