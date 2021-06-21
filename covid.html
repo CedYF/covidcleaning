@@ -1498,15 +1498,32 @@ submissionData.questions = inputData;
 
 
 
-const eagle = await fetch("https://eagle.mvfglobal.com/api/v2/legal-statement?subcategoryId=" + submissionData.subcategory_id +  "&localeCode=en_GB", {headers: {'Authorization': 'Bearer aer5dei2Thie2caib2yigu0ahwuNgu4w'}});
-const response = await eagle.json();
+// const eagle = await fetch("https://eagle.mvfglobal.com/api/v2/legal-statement?subcategoryId=" + submissionData.subcategory_id +  "&localeCode=en_GB", {headers: {'Authorization': 'Bearer aer5dei2Thie2caib2yigu0ahwuNgu4w'}});
+// const response = await eagle.json();
 
-submissionData.consented_suppliers_hash = response.consented_suppliers_hash;
-const res = await fetch('https://webforms.mvfglobal.com/submission/bob', {method: "POST", headers: {
-            "Content-Type": "application/json",
-        }, body: JSON.stringify(submissionData)});
-const json = await res.json();
-console.log(json);
+// submissionData.consented_suppliers_hash = response.consented_suppliers_hash;
+
+
+var settings = {
+    "url": "https://v1.nocodeapi.com/cedyf/google_sheets/PwozBIwuTPMDXdJG?tabId=<tabId>",
+    "method": "post",
+    "timeout": 0,
+    "headers": {
+        "Content-Type": "application/json"
+      },
+data = "[[\"NoCodeAPI\",\"hello@nocodeapi.com\"],[\"Mohd Danish\",\"mddanishyusuf@gmail.com\"]]"
+  };
+  
+  $.ajax(settings).done(function (response) {
+    console.log(response);
+  });
+
+
+// const res = await fetch('https://webforms.mvfglobal.com/submission/bob', {method: "POST", headers: {
+//             "Content-Type": "application/json",
+//         }, body: JSON.stringify(submissionData)});
+// const json = await res.json();
+// console.log(json);
 window.location.href = "https://news.expertmarket.co.uk/accounting-services-thanks?sid=2342343";
 
 
