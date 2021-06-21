@@ -1510,28 +1510,6 @@ var finalData = []
   });
 
 
-// const eagle = await fetch("https://eagle.mvfglobal.com/api/v2/legal-statement?subcategoryId=" + submissionData.subcategory_id +  "&localeCode=en_GB", {headers: {'Authorization': 'Bearer aer5dei2Thie2caib2yigu0ahwuNgu4w'}});
-// const response = await eagle.json();
-
-// submissionData.consented_suppliers_hash = response.consented_suppliers_hash;
-
-
-// var settings = {
-//     "url": "https://v1.nocodeapi.com/cedyf/google_sheets/PwozBIwuTPMDXdJG?tabId=<tabId>",
-//     "method": "post",
-//     "timeout": 0,
-//     "headers": {
-//         "Content-Type": "application/json"
-//       },
-
-//   };
-  
-//var data = "[[\"NoCodeAPI\",\"hello@nocodeapi.com\"],[\"Mohd Danish\",\"mddanishyusuf@gmail.com\"]]"
-
-  // $.ajax(settings).done(function (response) {
-  //   console.log(response);
-  // });
-
 var data = JSON.stringify([finalData])
 
 const res = await fetch('https://v1.nocodeapi.com/cedyf/google_sheets/PwozBIwuTPMDXdJG?tabId=Leads', {method: "POST", headers: {
@@ -1541,7 +1519,10 @@ const res = await fetch('https://v1.nocodeapi.com/cedyf/google_sheets/PwozBIwuTP
     });
 const json = await res.json();
 console.log(json);
-//window.location.href = "https://news.expertmarket.co.uk/accounting-services-thanks?sid=2342343";
+
+//JULIAN Create thank you page here with link
+
+window.location.href = "https://cedyf.github.io/covidcleaning/thanks";
 
 
 // inputData = {
